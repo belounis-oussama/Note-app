@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "332003723265",
+    "firebase_url": "https://note-app-249c6-default-rtdb.firebaseio.com",
+    "project_id": "note-app-249c6",
+    "storage_bucket": "note-app-249c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332003723265:android:2711cc238b74e17eff1800",
+        "android_client_info": {
+          "package_name": "app.easyeducation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332003723265-fn7uetqqi2emfqqd7oqotrjtnlj917i9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU96zJcfs87t3MWL0slUaxO8BdNKb7Xn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332003723265-fn7uetqqi2emfqqd7oqotrjtnlj917i9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332003723265:android:97bab8990703c46cff1800",
+        "android_client_info": {
+          "package_name": "com.example.note_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332003723265-fn7uetqqi2emfqqd7oqotrjtnlj917i9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU96zJcfs87t3MWL0slUaxO8BdNKb7Xn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332003723265-fn7uetqqi2emfqqd7oqotrjtnlj917i9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
