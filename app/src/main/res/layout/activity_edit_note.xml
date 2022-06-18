@@ -5,43 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.NoteappInverted"
-    tools:context=".CreateNote">
+    tools:context=".EditNote">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarcreatenote"
+        android:id="@+id/toolbareditnote"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorOnPrimary">
 
 
         <EditText
-            android:id="@+id/createtitlenote"
+            android:id="@+id/edittitlenote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="?attr/colorSecondary"
-            android:hint="Enter the note title here"
+
             android:padding="5dp"
             android:textColor="?attr/colorSecondary"
             android:textColorHint="?attr/colorSecondary" />
 
     </androidx.appcompat.widget.Toolbar>
 
-<EditText
-    android:layout_width="match_parent"
-    android:id="@+id/cretecontentnote"
-    android:layout_height="match_parent"
-    android:textSize="15sp"
-    android:textColor="?attr/colorOnSecondary"
-    android:background="?attr/colorOnPrimary"
-    android:gravity="top|left"
-    android:hint="Enter the note content here"
-    android:layout_below="@+id/toolbarcreatenote"
-    android:padding="10dp"
-    android:textColorHint="?attr/colorOnSecondary"/>
+    <EditText
+        android:id="@+id/editcontentnote"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbareditnote"
+        android:background="?attr/colorOnPrimary"
+        android:gravity="top|left"
+        android:padding="10dp"
+
+        android:textColor="?attr/colorOnSecondary"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:textSize="15sp" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/savenote"
+        android:id="@+id/saveeditnote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

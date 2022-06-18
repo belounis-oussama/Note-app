@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorOnPrimary"
+    android:theme="@style/Theme.NoteappInverted"
     tools:context=".MainNotes">
 
 
@@ -17,19 +18,17 @@
     />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Notefab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
         android:layout_gravity="bottom|end"
-        android:id="@+id/Notefab"
-        android:background="?attr/colorPrimary"
-        android:backgroundTint="?attr/colorPrimary"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:tint="?attr/colorOnPrimary"
         android:src="@drawable/add_icon"
-        app:maxImageSize="40dp"
-        >
+        app:maxImageSize="40dp">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
