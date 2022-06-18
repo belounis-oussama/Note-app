@@ -1,9 +1,11 @@
 package com.example.note_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -13,14 +15,20 @@ public class NoteDetails extends AppCompatActivity {
 
     private TextView titlenotedetail,contentnotedetail;
     FloatingActionButton gotoeditnote;
+    Toolbar toolbarnotedetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_details);
-        
+
+
         initWidget();
         Intent data=getIntent();
+
+
+        setSupportActionBar(toolbarnotedetail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         gotoeditnote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +47,25 @@ public class NoteDetails extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, MainNotes.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void initWidget() {
         titlenotedetail=findViewById(R.id.titlenotedetail);
         contentnotedetail=findViewById(R.id.detailcontentnote);
         gotoeditnote=findViewById(R.id.gotoeditnote);
+        toolbarnotedetail=findViewById(R.id.toolbarnotedetail);
     }
 }

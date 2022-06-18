@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,7 +27,7 @@ public class EditNote extends AppCompatActivity {
     Intent data;
     EditText edittitle,editcontent;
     FloatingActionButton savenote;
-    Toolbar toolbareditnote;
+    Toolbar toolbar;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     FirebaseUser firebaseUser;
@@ -37,6 +38,10 @@ public class EditNote extends AppCompatActivity {
         setContentView(R.layout.activity_edit_note);
         data=getIntent();
         initWidget();
+
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseFirestore=FirebaseFirestore.getInstance();
         firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
@@ -80,10 +85,24 @@ public class EditNote extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // app icon in action bar clicked; go home
+                Intent intent = new Intent(this, MainNotes.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void initWidget() {
         edittitle=findViewById(R.id.edittitlenote);
         editcontent=findViewById(R.id.editcontentnote);
         savenote=findViewById(R.id.saveeditnote);
-        toolbareditnote=findViewById(R.id.toolbareditnote);
+        toolbar=findViewById(R.id.toolbareditnote);
     }
 }

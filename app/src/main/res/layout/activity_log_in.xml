@@ -101,12 +101,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/email_icon"
-                app:tint="?attr/colorSecondary"
                 android:foregroundTint="@color/dark_teal"
                 android:hint="  Email"
                 android:inputType="textEmailAddress"
                 android:textColor="?attr/colorOnSecondary"
-                android:textColorHint="?attr/colorSecondary" />
+                android:textColorHint="?attr/colorSecondary"
+                app:tint="?attr/colorSecondary" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -195,6 +195,7 @@
 
 
             <TextView
+                android:id="@+id/logintosignup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

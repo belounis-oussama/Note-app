@@ -23,10 +23,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class LogIn extends AppCompatActivity {
     RelativeLayout layout;
     TextInputEditText emailinput,passwordinput;
-    TextView forgotpassword;
+    TextView forgotpassword,logintosignup;
     AppCompatButton login;
     ImageButton goback;
     FirebaseAuth firebaseAuth;
@@ -70,14 +73,41 @@ public class LogIn extends AppCompatActivity {
 
 
 
+        logintosignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),SignUp.class));
+                finish();
+            }
+        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
+                emailinput.setError(null);
+                passwordinput.setError(null);
+
                 String email=emailinput.getText().toString().trim();
                 String password=passwordinput.getText().toString().trim();
 
+                if (email.isEmpty())
+                {
+                    emailinput.setError("Email field is empty");
+                }
+                else if (password.isEmpty())
+                {
+                    passwordinput.setError("Password field is empty");
+                }
 
+                else  if (!isEmailValid(email))
+                {
+                    emailinput.setError("Invalid Email");
+                    Toast.makeText(LogIn.this, "make sure you email is correct", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
                 progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -85,7 +115,6 @@ public class LogIn extends AppCompatActivity {
 
                         if (task.isSuccessful())
                         {
-
                             checkMailVerification();
                         }
                         else {
@@ -96,7 +125,8 @@ public class LogIn extends AppCompatActivity {
                     }
                 });
             }
-        });
+        }});
+
 
 
         forgotpassword.setOnClickListener(new View.OnClickListener() {
@@ -143,5 +173,14 @@ public class LogIn extends AppCompatActivity {
         forgotpassword=findViewById(R.id.forgotpasswordtext);
         goback=findViewById(R.id.backLogin);
         progressBar=findViewById(R.id.progress_bar_login);
+        logintosignup=findViewById(R.id.logintosignup);
+    }
+
+
+    public static boolean isEmailValid(String email) {
+        String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+        Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
     }
 }
