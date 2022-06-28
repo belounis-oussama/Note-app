@@ -45,6 +45,28 @@ public class NoteDetails extends AppCompatActivity {
         titlenotedetail.setText(data.getStringExtra("title"));
         contentnotedetail.setText(data.getStringExtra("Content"));
 
+
+        titlenotedetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),EditNote.class);
+                intent.putExtra("title",data.getStringExtra("title"));
+                intent.putExtra("Content",data.getStringExtra("Content"));
+                intent.putExtra("noteId",data.getStringExtra("noteId"));
+                view.getContext().startActivity(intent);
+            }
+        });
+        contentnotedetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(view.getContext(),EditNote.class);
+                intent.putExtra("title",data.getStringExtra("title"));
+                intent.putExtra("Content",data.getStringExtra("Content"));
+                intent.putExtra("noteId",data.getStringExtra("noteId"));
+                view.getContext().startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -53,7 +75,7 @@ public class NoteDetails extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                Intent intent = new Intent(this, MainNotes.class);
+                Intent intent = new Intent(this, MainHolder.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

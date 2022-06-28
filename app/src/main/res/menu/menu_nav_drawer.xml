@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/profile"
+            android:icon="@drawable/profileicon"
+            android:title="Profile"/>
+
+
+        <item android:id="@+id/notes"
+            android:icon="@drawable/noteicon"
+            android:title="Notes"/>
+
+
+        <item android:id="@+id/folders"
+            android:icon="@drawable/foldericon"
+            android:title="Folders"/>
+
+        <item android:id="@+id/starred"
+            android:icon="@drawable/staricon"
+            android:title="Starred"/>
+
+
+        <item android:id="@+id/settings"
+            android:icon="@drawable/settingsicon"
+            android:title="Settings"/>
+
+
+    </group>
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item android:id="@+id/share"
+                android:icon="@drawable/shareicon"
+                android:title="Share"
+                />
+        </menu>
+    </item>
+</menu>

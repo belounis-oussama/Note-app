@@ -149,7 +149,7 @@ public class SignUp extends AppCompatActivity {
                     email.setError("Invalid Email");
                     Toast.makeText(SignUp.this, "make sure you email is correct", Toast.LENGTH_SHORT).show();
                 }
-                else
+                else if (imageUri!=null)
                 {
 
 

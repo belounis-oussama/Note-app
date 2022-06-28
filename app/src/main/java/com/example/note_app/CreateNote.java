@@ -70,7 +70,7 @@ public class CreateNote extends AppCompatActivity {
                         public void onSuccess(Void unused) {
 
                                 Toast.makeText(getApplicationContext(), "Note created successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),MainNotes.class));
+                                startActivity(new Intent(getApplicationContext(),MainHolder.class));
                                 finish();
 
                         }
@@ -93,9 +93,9 @@ public class CreateNote extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                Intent intent = new Intent(this, MainNotes.class);
+                Intent intent = new Intent(this, MainHolder.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                startActivity(intent);finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

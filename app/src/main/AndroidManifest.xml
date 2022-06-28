@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noteapp">
         <activity
+            android:name=".SplashScreen"
+            android:exported="false" />
+        <activity
+            android:name=".Settings"
+            android:exported="false" />
+        <activity
+            android:name=".MainHolder"
+            android:exported="false" />
+        <activity
             android:name=".NoteDetails"
             android:exported="false" />
         <activity

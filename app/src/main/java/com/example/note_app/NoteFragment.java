@@ -1,11 +1,5 @@
 package com.example.note_app;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,7 +14,13 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,24 +36,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
-public class MainNotes extends AppCompatActivity {
-
+public class NoteFragment extends Fragment {
     FloatingActionButton add;
     RecyclerView notesRecycle;
     StaggeredGridLayoutManager staggeredGridLayoutManager;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     FirebaseFirestore firebaseFirestore;
+    View view;
 
 
-
-    FirestoreRecyclerAdapter<firebaseModele,NoteViewHolder> noteAdapter;
-
+    FirestoreRecyclerAdapter<firebaseModele, NoteFragment.NoteViewHolder> noteAdapter;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_notes);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+       view = inflater.inflate(R.layout.fragment_notes, container, false);
+
+
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
@@ -66,19 +67,21 @@ public class MainNotes extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),CreateNote.class));
-                finish();
+                startActivity(new Intent(getActivity(),CreateNote.class));
+                getActivity().finish();
+
             }
         });
+
 
 
         Query query=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").orderBy("title",Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<firebaseModele> allNotes= new FirestoreRecyclerOptions.Builder<firebaseModele>().setQuery(query,firebaseModele.class).build();
 
-        noteAdapter=new FirestoreRecyclerAdapter<firebaseModele, NoteViewHolder>(allNotes) {
+        noteAdapter=new FirestoreRecyclerAdapter<firebaseModele, NoteFragment.NoteViewHolder>(allNotes) {
             @Override
-            protected void onBindViewHolder(@NonNull NoteViewHolder holder, int position, @NonNull firebaseModele model) {
+            protected void onBindViewHolder(@NonNull NoteFragment.NoteViewHolder holder, int position, @NonNull firebaseModele model) {
 
 
                 ImageView popupmenu=holder.itemView.findViewById(R.id.menupopoupbtn);
@@ -88,6 +91,7 @@ public class MainNotes extends AppCompatActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     holder.mynote.setBackgroundColor(holder.itemView.getResources().getColor(colorcode,null));
                 }
+
 
                 holder.notetitle.setText(model.getTitle()) ;
                 holder.notecontent.setText(model.getContent());
@@ -136,18 +140,18 @@ public class MainNotes extends AppCompatActivity {
                         popupMenu.getMenu().add("Delte").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem menuItem) {
-                                //Toast.makeText(MainNotes.this, "note deleted", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(NoteFragment.this, "note deleted", Toast.LENGTH_SHORT).show();
 
                                 DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
                                 documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(MainNotes.this, "Note deleted", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), "Note deleted", Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(MainNotes.this, "Failed to delete", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getActivity(), "Failed to delete", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 return false;
@@ -161,9 +165,9 @@ public class MainNotes extends AppCompatActivity {
 
             @NonNull
             @Override
-            public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-               View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.notelayout,parent,false);
-               return new NoteViewHolder(view);
+            public NoteFragment.NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.notelayout,parent,false);
+                return new NoteFragment.NoteViewHolder(view);
             }
         };
 
@@ -175,7 +179,10 @@ public class MainNotes extends AppCompatActivity {
         notesRecycle.setLayoutManager(staggeredGridLayoutManager);
         notesRecycle.setAdapter(noteAdapter);
 
+        return view;
     }
+
+
 
     private int getRandomColor() {
         List<Integer> colorCode=new ArrayList<>();
@@ -198,8 +205,8 @@ public class MainNotes extends AppCompatActivity {
     public static class  NoteViewHolder extends RecyclerView.ViewHolder
     {
 
-        private TextView notetitle;
-        private TextView notecontent;
+        public TextView notetitle;
+        public TextView notecontent;
         LinearLayout mynote;
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -211,20 +218,22 @@ public class MainNotes extends AppCompatActivity {
     }
 
     private void initWidget() {
-        add=findViewById(R.id.Notefab);
-        notesRecycle=findViewById(R.id.recycleviewNotes);
+        add=view.findViewById(R.id.Notefab);
+        notesRecycle= view.findViewById(R.id.recycleviewNotes);
     }
 
 
+
+
     @Override
-    protected void onStart() {
+    public void onStart() {
         super.onStart();
         noteAdapter.startListening();
     }
 
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         if (noteAdapter!=null)
         {

@@ -153,7 +153,7 @@ public class LogIn extends AppCompatActivity {
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
         if (firebaseUser.isEmailVerified())
         {
-            startActivity(new Intent(getApplicationContext(),MainNotes.class));
+            startActivity(new Intent(getApplicationContext(),MainHolder.class));
             finish();
         }
         else

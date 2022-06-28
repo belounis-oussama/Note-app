@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/colorOnPrimary"
+    android:theme="@style/Theme.NoteappInverted">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutuser"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:endIconMode="clear_text"
+        app:tint="?attr/colorSecondary"
+        app:endIconTint="?attr/colorPrimary"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/namesignin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_round_search_24"
+            android:foregroundTint="?attr/colorPrimary"
+            android:hint="Search..."
+            app:tint="?attr/colorPrimary"
+            android:inputType="text"
+            android:textColor="?attr/colorOnSecondary"
+            android:textColorHint="?attr/colorPrimary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleviewNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textInputLayoutuser"
+        android:scrollbars="vertical" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Notefab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:tint="?attr/colorOnPrimary"
+        android:src="@drawable/add_icon"
+       >
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+</RelativeLayout>
