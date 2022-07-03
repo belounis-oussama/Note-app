@@ -7,8 +7,10 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -153,6 +155,11 @@ public class LogIn extends AppCompatActivity {
         FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
         if (firebaseUser.isEmailVerified())
         {
+            SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor=sharedPreferences.edit();
+            editor.putBoolean("hasLoggedIn",true);
+
+            editor.apply();
             startActivity(new Intent(getApplicationContext(),MainHolder.class));
             finish();
         }

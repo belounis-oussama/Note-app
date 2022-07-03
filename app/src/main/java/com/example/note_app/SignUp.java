@@ -154,6 +154,7 @@ public class SignUp extends AppCompatActivity {
 
 
 
+
                     progressBar.setVisibility(View.VISIBLE);
                 firebaseAuth.createUserWithEmailAndPassword(emailtext,passwordtext).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override

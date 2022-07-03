@@ -18,6 +18,24 @@
     </style>
 
 
+    <style name="Theme.Gruvbox" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <!-- Primary brand color. -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#d79921</item>
+        <item name="colorPrimaryVariant">#fabd2f</item>
+        <item name="colorOnPrimary">#ebdbb2</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#458588</item>
+        <item name="colorSecondaryVariant">#83a598</item>
+        <item name="colorOnSecondary">#282828</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
+
+
+        <!-- Customize your theme here. -->
+    </style>
+
+
 
     <style name="Theme.NoteappInverted" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->

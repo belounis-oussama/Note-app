@@ -41,6 +41,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:21.0.0'
     implementation 'com.google.firebase:firebase-functions:20.1.0'
 
+
+    //picasso  for imageview
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     // FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
 
@@ -56,5 +60,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //this one is for ColorPicekr used in folder color
+    implementation 'com.github.yukuku:ambilwarna:2.0.1'
+
+
+    //custom color picker library
 
 }

@@ -1,6 +1,7 @@
 package com.example.note_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,24 +17,36 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
 
 
+        SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String thememode=sharedPreferences.getString("thememode","light");
+
+        if (thememode.equals("dark"))
+        {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        else if (thememode.equals("light"))
+        {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 boolean hasLogged=sharedPreferences.getBoolean("hasLoggedIn",false);
 
+                Intent intent;
                 if (hasLogged)
                 {
-                    Intent intent=new Intent(getApplicationContext(),MainHolder.class);
-                    startActivity(intent);
-                    finish();
+                    intent = new Intent(getApplicationContext(), MainHolder.class);
                 }
                 else
                 {
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    intent = new Intent(getApplicationContext(), MainActivity.class);
                 }
+                startActivity(intent);
+                finish();
 
             }
         },SPLASH_TIME);
