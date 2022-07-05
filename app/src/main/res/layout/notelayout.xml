@@ -46,9 +46,17 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:id="@+id/starticonnote"
+                    android:src="@drawable/staricon"
+                    android:visibility="invisible"
+                    android:layout_weight="0"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:id="@+id/menupopoupbtn"
                     android:src="@drawable/vert_icon"
                     android:layout_weight="0"/>
+
 
 
             </LinearLayout>

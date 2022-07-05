@@ -4,10 +4,12 @@ public class firebaseModele {
 
     private String title;
     private String content;
+    private String starred;
 
-    public firebaseModele(String title, String content) {
+    public firebaseModele(String title, String content, String starred) {
         this.title = title;
         this.content = content;
+        this.starred = starred;
     }
 
     public firebaseModele() {
@@ -29,11 +31,20 @@ public class firebaseModele {
         this.content = content;
     }
 
+    public String getStarred() {
+        return starred;
+    }
+
+    public void setStarred(String starred) {
+        this.starred = starred;
+    }
+
     @Override
     public String toString() {
         return "firebaseModele{" +
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
+                ", starred='" + starred + '\'' +
                 '}';
     }
 }

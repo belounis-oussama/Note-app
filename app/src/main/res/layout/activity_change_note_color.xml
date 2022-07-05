@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnPrimary"
+    android:orientation="vertical"
+
+    tools:context=".ChangeNoteColor">
+
+    <TextView
+        android:layout_gravity="center"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Notes color"
+        android:textStyle="bold"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"/>
+
+    <RadioGroup
+        android:layout_marginTop="30dp"
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
+
+        <RadioButton
+            android:id="@+id/randcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Random colors (recommended)" />
+
+        <RadioButton
+            android:id="@+id/customcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Custom color" />
+    </RadioGroup>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:id="@+id/cutomcolorlayour"
+        android:visibility="invisible"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/choosedcolor"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="?attr/colorPrimary" />
+        <TextView
+            android:id="@+id/textcolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#FFFF"
+            android:layout_gravity="center"
+            android:textColor="?attr/colorPrimary"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

@@ -79,13 +79,13 @@ public class MainHolder extends AppCompatActivity implements NavigationView.OnNa
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 User_Model user=snapshot.getValue(User_Model.class);
-               Toast.makeText(MainHolder.this, user.getPictureLink(), Toast.LENGTH_SHORT).show();
+
                    name.setText(user.getNickname());
                    email.setText(user.getEmail());
                   // profile.setImageURI(Uri.parse(user.getPictureLink()));
                 //profile.setImageDrawable(getApplicationContext().getDrawable(R.drawable.profile_light));
 
-                Picasso.get().load(user.getPictureLink()).into(profile);
+               Picasso.get().load(user.getPictureLink()).into(profile);
 
 
 
@@ -116,9 +116,7 @@ public class MainHolder extends AppCompatActivity implements NavigationView.OnNa
 
         switch (item.getItemId())
         {
-            case R.id.profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
-                break;
+
 
             case R.id.notes:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NoteFragment()).commit();

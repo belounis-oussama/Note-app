@@ -64,20 +64,7 @@ public class FoldersFragment extends Fragment {
     private void openColorPicker() {
 
 
-        AmbilWarnaDialog colorPicker =new AmbilWarnaDialog(getContext(), R.color.dark_teal, new AmbilWarnaDialog.OnAmbilWarnaListener() {
-            @Override
-            public void onCancel(AmbilWarnaDialog dialog) {
 
-            }
-
-            @Override
-            public void onOk(AmbilWarnaDialog dialog, int color) {
-
-
-            }
-        });
-
-        colorPicker.show();
 
     }
 }

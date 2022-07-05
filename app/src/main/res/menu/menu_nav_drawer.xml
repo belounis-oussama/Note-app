@@ -4,9 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/profile"
-            android:icon="@drawable/profileicon"
-            android:title="Profile"/>
+
 
 
         <item android:id="@+id/notes"

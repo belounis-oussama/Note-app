@@ -85,6 +85,7 @@ public class NoteFragment extends Fragment {
 
 
                 ImageView popupmenu=holder.itemView.findViewById(R.id.menupopoupbtn);
+                ImageView star=holder.itemView.findViewById(R.id.starticonnote);
 
 
                 int colorcode=getRandomColor();
@@ -95,6 +96,14 @@ public class NoteFragment extends Fragment {
 
                 holder.notetitle.setText(model.getTitle()) ;
                 holder.notecontent.setText(model.getContent());
+                if (model.getStarred().equals("true"))
+                {
+                    holder.star.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    holder.star.setVisibility(View.INVISIBLE);
+                }
 
                 String docId=noteAdapter.getSnapshots().getSnapshot(position).getId();
 
@@ -137,6 +146,29 @@ public class NoteFragment extends Fragment {
                             }
                         });
 
+                        popupMenu.getMenu().add("Star").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                            @Override
+                            public boolean onMenuItemClick(MenuItem menuItem) {
+                                if (model.getStarred().equals("true"))
+                                {
+
+
+                                    DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
+                                    model.setStarred("false");
+                                    documentReference.set(model);
+                                }
+                                else
+                                {
+                                    DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document(docId);
+
+                                    model.setStarred("true");
+                                    documentReference.set(model);
+
+                                }
+                                return false;
+                            }
+                        });
+
                         popupMenu.getMenu().add("Delte").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                             @Override
                             public boolean onMenuItemClick(MenuItem menuItem) {
@@ -157,6 +189,8 @@ public class NoteFragment extends Fragment {
                                 return false;
                             }
                         });
+
+
 
                         popupMenu.show();
                     }
@@ -208,12 +242,14 @@ public class NoteFragment extends Fragment {
         public TextView notetitle;
         public TextView notecontent;
         LinearLayout mynote;
+        ImageView star;
         public NoteViewHolder(@NonNull View itemView) {
             super(itemView);
 
             notetitle=itemView.findViewById(R.id.notetitle);
             notecontent=itemView.findViewById(R.id.notecontent);
             mynote=itemView.findViewById(R.id.note);
+            star=itemView.findViewById(R.id.starticonnote);
         }
     }
 

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnPrimary"
+    tools:context=".EditProfile">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/circleImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="15dp"
+        android:src="@drawable/profile_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/setpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/camera_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintStart_toEndOf="@+id/circleImageView" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutuser"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:endIconMode="clear_text"
+        app:endIconTint="?attr/colorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/namesignin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_round_person_24"
+            android:foregroundTint="@color/dark_teal"
+            android:hint="  Nickname"
+            android:inputType="text"
+            android:textColor="?attr/colorOnSecondary"
+            android:textColorHint="?attr/colorSecondary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:endIconMode="clear_text"
+        android:layout_marginTop="10dp"
+        app:endIconTint="?attr/colorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutuser">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/email_icon"
+            android:foregroundTint="@color/dark_teal"
+            android:hint="  Email"
+            android:inputType="textEmailAddress"
+            android:textColor="?attr/colorOnSecondary"
+            android:textColorHint="?attr/colorSecondary" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:endIconMode="password_toggle"
+        app:endIconTint="?attr/colorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password_signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="  Password"
+            android:textColor="?attr/colorOnSecondary"
+            android:foregroundTint="@color/dark_teal"
+            android:drawableStart="@drawable/password_icon"
+            android:textColorHint="?attr/colorSecondary" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveprofileupdate"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/dark_brown_button"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:layout_marginTop="40dp"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

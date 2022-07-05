@@ -19,7 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CreateNote extends AppCompatActivity {
@@ -61,9 +63,9 @@ public class CreateNote extends AppCompatActivity {
                 {
 
                     DocumentReference documentReference=firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("mynotes").document();
-                    Map<String, Object> note=new HashMap<>();
-                    note.put("title",title);
-                    note.put("content",content);
+
+
+                    firebaseModele note=new firebaseModele(title,content,"false");
 
                     documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override

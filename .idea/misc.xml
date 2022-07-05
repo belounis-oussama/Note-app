@@ -19,9 +19,11 @@
         <entry key="app/src/main/res/drawable/password_icon.xml" value="0.2245" />
         <entry key="app/src/main/res/drawable/profileicon.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/save_icon.xml" value="0.2245" />
+        <entry key="app/src/main/res/layout/activity_change_note_color.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_change_password.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_create_note.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_edit_note.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/activity_edit_profile.xml" value="0.17119565217391305" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2504528985507246" />

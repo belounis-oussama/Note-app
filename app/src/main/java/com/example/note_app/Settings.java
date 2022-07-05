@@ -16,10 +16,12 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.core.view.Change;
 
+import yuku.ambilwarna.AmbilWarnaDialog;
+
 public class Settings extends AppCompatActivity {
 
     AppCompatButton logout;
-    RelativeLayout changepassword;
+    RelativeLayout changepassword,editprofile,changenotecolor;
     SwitchMaterial darkmode,lockswitch;
 
 
@@ -40,6 +42,13 @@ public class Settings extends AppCompatActivity {
         }
 
 
+        editprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),EditProfile.class));
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +63,14 @@ public class Settings extends AppCompatActivity {
             }
         });
 
+
+        changenotecolor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), ChangeNoteColor.class));
+
+            }
+        });
 
 
         changepassword.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +87,7 @@ public class Settings extends AppCompatActivity {
 
                 if (b)
                 {
-                    getTheme();
+                   // getTheme();
                 }
 
 
@@ -120,6 +137,8 @@ public Resources.Theme getTheme() {
         });
     }
 
+
+
     private void resetActivity() {
         startActivity(new Intent(getApplicationContext(),Settings.class));
         finish();
@@ -130,9 +149,11 @@ public Resources.Theme getTheme() {
         changepassword=findViewById(R.id.changepassword);
         darkmode=findViewById(R.id.darkmodeswitch);
         lockswitch=findViewById(R.id.lockswitch);
+        editprofile=findViewById(R.id.editprofile);
+        changenotecolor=findViewById(R.id.changenotecolor);
     }
 
-
+/*
     @Override
     public Resources.Theme getTheme() {
         Resources.Theme theme = super.getTheme();
@@ -142,7 +163,7 @@ public Resources.Theme getTheme() {
         // you could also use a switch if you have many themes that could apply
         return theme;
     }
-
+*/
 
 
 
